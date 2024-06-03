@@ -1,4 +1,6 @@
-export function convertPrice(price: number) {
+export function convertPrice(price: number | undefined) {
+  if (price === undefined) return "";
   const decimalPrice = price / 100;
-  return price === 0 ? "0" : parseFloat(decimalPrice.toFixed(2)).toString();
+  const formattedPrice = price === 0 ? "0" : decimalPrice.toFixed(2);
+  return formattedPrice;
 }

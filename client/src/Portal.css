@@ -21,19 +21,39 @@ header h1 {
   padding: 0;
 }
 
-header button {
+.cartButton {
   width: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.cartButton.animate {
+  animation: pulse 0.5s ease-in-out;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 .cartIconQuantity {
   background-color: red;
-  width: 20px;
-  height: 20px;
+  width: 25px;
+  height: 25px;
   border-radius: 100%;
   margin-right: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .items {
@@ -53,6 +73,8 @@ header button {
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.768);
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
 }
 
 .item:hover {
@@ -61,6 +83,11 @@ header button {
 
 .item img {
   width: 100%;
+}
+
+.item button {
+  margin-top: auto;
+  bottom: 0;
 }
 
 @media (min-width:1080px) {
@@ -73,4 +100,41 @@ header button {
   .items {
     grid-template-columns: repeat(5, 1fr);
   }
+}
+
+.cartGridRow {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 20px;
+}
+
+.cartGridRow h3 {
+  margin: 0;
+  padding: 0;
+}
+
+.cartGridRow-itemQuantity {
+  display: flex;
+  height: 40px;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.cartGridRow-itemQuantity h4 {
+  padding: 10px;
+}
+
+.cartGridTotals {
+  display: flex;
+  justify-content: space-between;
+  color: green;
+}
+
+.checkoutSection {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.checkoutButton {
+  background-color: blue;
 }

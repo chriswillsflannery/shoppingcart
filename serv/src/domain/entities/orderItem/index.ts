@@ -1,7 +1,7 @@
 import { z } from "zod";
 
 export const zOrderItem = z.object({
-  orderId: z.number().int(),
+  orderId: z.number().int().optional(),
   itemId: z.number().int(),
   quantity: z.number().int(),
 });
