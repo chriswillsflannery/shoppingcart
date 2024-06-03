@@ -1,8 +1,76 @@
 .portal {
-  width: 90%;
-  height: 90%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   position: relative;
+}
+
+header {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  margin: 20px 0;
+  box-sizing: border-box;
+}
+
+header h1 {
+  margin: 0;
+  padding: 0;
+}
+
+header button {
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cartIconQuantity {
+  background-color: red;
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  margin-right: 10px;
+}
+
+.items {
+  width: 100%;
+  display: grid;
+  gap: 10px;
+  padding: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  box-sizing: border-box;
+}
+
+.item {
+  padding: 10px;
+  text-align: center;
+  box-sizing: border-box;
+  border: 1px solid #505050;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.768);
+  cursor: pointer;
+}
+
+.item:hover {
+  background-color: #636363;
+}
+
+.item img {
+  width: 100%;
+}
+
+@media (min-width:1080px) {
+  .items {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (min-width:1400px) {
+  .items {
+    grid-template-columns: repeat(5, 1fr);
+  }
 }

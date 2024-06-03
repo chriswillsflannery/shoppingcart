@@ -15,24 +15,26 @@ const updateCart = async ({
     where: { id: body.id },
     create: {
       id: body.id,
-      createdAt: body.createdAt,
-      updatedAt: body.updatedAt,
+      createdAt: new Date(),
+      updatedAt: new Date(),
       items: {
         create: body.items.map((item) => ({
-          cartId: body.id,
-          itemId: item.itemId,
           quantity: item.quantity,
+          item: {
+            connect: { id: item.itemId }
+          }
         })),
       },
     },
     update: {
-      updatedAt: body.updatedAt,
+      updatedAt: new Date(),
       items: {
         deleteMany: {}, // delete all existing items
         create: body.items.map((item) => ({
-          cartId: body.id,
-          itemId: item.itemId,
           quantity: item.quantity,
+          item: {
+            connect: { id: item.itemId }
+          }
         })),
       }
     }
